@@ -12,10 +12,19 @@ As you probably understand WHT compiles into HTML.
 ### Headers
 This markup language has support for all HTML header sizes
 
-<code>#[1-6] TEXT</code>
+<code>#[1-6] [text]</code>
+
+Example: <code>#6 Hello World</code>
 
 ### Links
+To add a link to your header use following syntax
+
+<code>@[folder-name]/[...]/[file-name].html</code>
+
+Example: <code>#6 @summaries/100.html 100</code>
+
 ### Paragraphs
-### Tags
+Each row in the file that does not use any of the above syntax becomes a p-tag
+
 
 ![test](template.png)
