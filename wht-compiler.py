@@ -1,4 +1,8 @@
 import sys
+import os
+
+
+special_chars = ['—', '-', '"', ',', '\'', ':']
 
 
 def open_file(path):
@@ -10,11 +14,16 @@ def open_file(path):
 
 def create_file(content):
 	filename = sys.argv[1].split('.')[0] + '.html'
-	file = open(filename, "a")
+	path = '../' + filename
+	file_exists = os.path.exists(path)
+	if file_exists:
+		with open(path, 'r+') as f:
+			f.truncate(0)
+	file = open(path, "a")
 	for line in content:
 		file.write(line + '\n')
 	file.close()
-	file = open(filename, "r")
+	file = open(path, "r")
 	print(file.read())
 
 
@@ -31,7 +40,7 @@ def compile(lines):
 
 def handle_line(line):
 	if line:
-		if all(char.isalpha() or char.isspace() for char in line):
+		if all(char.isalpha() or char.isdigit() or char.isspace() or char in special_chars for char in line):
 			return line
 		elif line[0] == '.':
 			line = line[1:]
