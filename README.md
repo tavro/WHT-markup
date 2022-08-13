@@ -24,7 +24,8 @@ To add a link to your header use following syntax
 Example: <code>#6 @summaries/100.html 100</code>
 
 ### Paragraphs
-Each row in the file that does not use any of the above syntax becomes a p-tag.
+Each row in the file that does not use any of the above syntax becomes a paragraph.
+(notice that this does not mean that it becomes a HTML p-tag)
 
 Do not use any punctuation, instead, start a new line when starting a new sentence.
 
